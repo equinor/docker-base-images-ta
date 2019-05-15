@@ -2,7 +2,7 @@
 set -e
 
 echo "Logging in to registry [docker.io]"
-docker login docker.io
+docker login docker.io || echo Could not log in to docker.io
 
 ORGANIZATION_NAME=equinorta
 
@@ -17,6 +17,6 @@ do
     IMAGE_TAG="${ORGANIZATION_NAME}/${IMAGE_NAME}:latest"
     docker build --pull --squash --tag ${IMAGE_TAG} .
     echo "Pushing ${IMAGE_TAG}"
-    docker push ${IMAGE_TAG}
+    docker push ${IMAGE_TAG} || echo Could not push
     cd -
 done
