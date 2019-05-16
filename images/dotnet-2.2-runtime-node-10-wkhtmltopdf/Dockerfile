@@ -10,8 +10,8 @@ RUN apt-get install -yq wget
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -yq nodejs build-essential
 
 # Install wkhtmltox (provides wkhtmltopdf command)
-RUN wget --no-check-certificate https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb
-RUN apt install -yq ./wkhtmltox_0.12.5-1.stretch_amd64.deb
+RUN wget --no-check-certificate https://builds.wkhtmltopdf.org/0.12.6-dev/wkhtmltox_0.12.6-0.20180618.3.dev.e6d6f54.stretch_amd64.deb
+RUN apt install -yq ./wkhtmltox_0.12.6-0.20180618.3.dev.e6d6f54.stretch_amd64.deb
 
 # Install System.Drawing native dependencies
 RUN apt-get install -yq --allow-unauthenticated \
