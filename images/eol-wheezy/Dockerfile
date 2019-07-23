@@ -2,6 +2,7 @@ FROM debian/eol:wheezy
 
 RUN echo "APT::Get::Install-Recommends "false";" > /etc/apt/apt.conf.d/10-do-not-install-recommended-packages
 RUN echo "APT::Get::Assume-Yes "true";" > /etc/apt/apt.conf.d/20-assume-yes
+
 RUN echo "deb http://archive.debian.org/debian wheezy-backports main contrib" >> /etc/apt/sources.list
 
 # Wheezy package repositories are now outdated (404 not found).
@@ -12,6 +13,7 @@ RUN apt-get install \
     build-essential \
     ca-certificates \
     chromium-browser \
+    console-setup \
     debconf-utils \
     devscripts \
     dialog \
@@ -40,6 +42,7 @@ RUN apt-get install \
     libxv1 \
     libxxf86dga1 \
     locales \
+    locate \
     lsof \
     mesa-common-dev \
     mesa-utils \
@@ -63,6 +66,8 @@ RUN apt-get install \
 COPY locale.gen /etc/locale.gen
 RUN locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+RUN updatedb
 
 # This directory needs to be created manually when sshd is not run as a service.
 RUN mkdir -p /var/run/sshd

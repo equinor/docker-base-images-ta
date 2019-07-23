@@ -19,7 +19,7 @@ do
     echo "Building image ${IMAGE_NAME}"
     cd "${IMAGE_NAME}"
     IMAGE_TAG="${ORGANIZATION_NAME}/${IMAGE_NAME}:latest"
-    docker build --pull --squash --tag ${IMAGE_TAG} --build-arg no_proxy="${NO_PROXY}" --build-arg http_proxy="${HTTP_PROXY}" --build-arg https_proxy="${HTTPS_PROXY}" $@ .
+    docker build --tag ${IMAGE_TAG} --build-arg no_proxy="${NO_PROXY}" --build-arg http_proxy="${HTTP_PROXY}" --build-arg https_proxy="${HTTPS_PROXY}" $@ .
     echo "Pushing ${IMAGE_TAG}"
     docker push ${IMAGE_TAG} || echo Could not push
     cd -
