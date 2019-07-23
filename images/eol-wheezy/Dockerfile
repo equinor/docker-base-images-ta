@@ -15,6 +15,7 @@ RUN apt-get install \
     chromium-browser \
     console-setup \
     debconf-utils \
+    desktop-file-utils \
     devscripts \
     dialog \
     emacs \
@@ -66,6 +67,9 @@ RUN apt-get install \
 COPY locale.gen /etc/locale.gen
 RUN locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+# Build cache database of MIME types handled by desktop files
+RUN update-desktop-database
 
 RUN updatedb
 
