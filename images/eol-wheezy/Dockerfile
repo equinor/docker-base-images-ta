@@ -1,5 +1,8 @@
 FROM debian/eol:wheezy
 
+# Make sure everybody knows we should not be asked anything
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Make apt-get not install recommended packages
 RUN echo "APT::Get::Install-Recommends "false";" > /etc/apt/apt.conf.d/10-do-not-install-recommended-packages
 
