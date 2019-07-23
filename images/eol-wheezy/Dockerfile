@@ -15,6 +15,7 @@ RUN echo "deb http://archive.debian.org/debian wheezy-backports main contrib" >>
 RUN apt-get update && apt-get install \
     apt-utils \
     build-essential \
+    bzr \
     ca-certificates \
     chromium-browser \
     console-setup \
