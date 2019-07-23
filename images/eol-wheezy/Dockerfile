@@ -9,7 +9,6 @@ RUN echo "APT::Get::Assume-Yes "true";" > /etc/apt/apt.conf.d/20-assume-yes
 # We want wheezy-backports packages, so we add the repository for it
 RUN echo "deb http://archive.debian.org/debian wheezy-backports main contrib" >> /etc/apt/sources.list
 
-# Wheezy package repositories are now outdated (404 not found).
 RUN apt-get update
 
 RUN apt-get install \
