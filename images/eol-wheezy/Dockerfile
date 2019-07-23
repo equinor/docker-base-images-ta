@@ -58,6 +58,7 @@ RUN apt-get update && apt-get install \
     raptor2-utils \
     rasqal-utils \
     redland-utils \
+    ssh-askpass \
     strace \
     sudo \
     ttf-wqy-zenhei \
