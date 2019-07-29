@@ -1,34 +1,20 @@
-# ======================================================================== #
-#               Mandatory variables - set to fit your environment          #
-# ======================================================================== #
-
-variables:
-   imageFolderPath: 'images'
-   serviceConnection: 'equinorta-ci'
-   targetContainerRegistry: 'equinorta'
-   fullPathName: '$(imageFolderPath)/$(imageName)'
-   # Set the 'imageName' variable to the same name as the folder of this file.
-   imageName: 'dotnet-3.0-runtime-node-10-wkhtmltopdf'  
-
 trigger:
+  - master
+pr:
   branches:
     include:
-      - master  
-  paths:
-    include:
-      - '$(fullPathName)/*'
+      - '*'
 
 steps:
-- task: Docker@2
-  displayName: Login to Docker Hub
-  inputs:
-    command: login
-    containerRegistry: $(serviceConnection) 
-- task: Docker@2
-  displayName: Build and Push
-  inputs:
-    command: buildAndPush
-    repository: $(targetContainerRegistry)/$(imageName)
-    dockerFile: '$(fullPathName)/Dockerfile'   
-    tags: |
-      latest
+  - task: Docker@2
+    displayName: Build Docker Image for DotNet Core SDK
+    inputs:
+      command: build
+      Dockerfile: images/dotnet-2.2-sdk-node-10/Dockerfile
+      buildContext: images/dotnet-2.2-sdk-node-10
+  - task: Docker@2
+    displayName: Build Docker Runtime for DotNet Core SDK
+    inputs:
+      command: build
+      Dockerfile: images/dotnet-2.2-runtime-node-10-wkhtmltopdf/Dockerfile
+      buildContext: images/dotnet-2.2-runtime-node-10-wkhtmltopdf
