@@ -1,0 +1,7 @@
+# If you want to generate more locales, insert them here and run locale-gen. Then set the appropriate environment variables.
+# Also see: /usr/share/i18n/SUPPORTED
+
+en_US.UTF-8 UTF-8
+
+# These locales are generated in case they are ever needed:
+nb_NO.UTF-8 UTF-8
