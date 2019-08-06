@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install \
     gsettings-desktop-schemas \
     git \
     gnome-terminal \
+    kate \
     libcanberra-gtk-module \
     libcanberra-gtk3-module \
     libmpc-dev \
