@@ -2,6 +2,8 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview5
 
 ARG NODE_VERSION=12
 
+ENV SuppressNETCoreSdkPreviewMessage=true
+
 # Update all package lists
 RUN apt-get update
 

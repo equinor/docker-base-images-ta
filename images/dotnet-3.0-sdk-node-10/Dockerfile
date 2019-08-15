@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview5
 
+ENV SuppressNETCoreSdkPreviewMessage=true
+
 # Install Node 10
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -yq nodejs build-essential
 
