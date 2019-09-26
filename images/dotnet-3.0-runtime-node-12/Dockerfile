@@ -12,8 +12,7 @@ RUN apt-get update && \
    libc6-dev \
    libgdiplus \
    libx11-dev \
-   chromium 
-
-RUN mv /etc/fonts /etc/fonts_bak
-RUN apt-get install fontconfig \
+   chromium && \
+   rm -rf /etc/fonts && \
+   apt-get install fontconfig \
    && rm -rf /var/lib/apt/lists/*
