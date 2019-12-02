@@ -12,4 +12,5 @@ RUN apt-get update && \
    libc6-dev \
    libgdiplus \
    libx11-dev \
+   unzip \
    && rm -rf /var/lib/apt/lists/*
