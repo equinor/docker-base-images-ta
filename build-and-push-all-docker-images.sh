@@ -14,7 +14,7 @@ HTTPS_PROXY=$(env | grep -i https_proxy | head -n 1 | cut -d '=' -f 2)
 
 cd images
 
-for IMAGE_NAME in "dotnet-3.0-runtime-node-12" "dotnet-3.0-sdk-node-12"
+for IMAGE_NAME in "dotnet-3.1-runtime-node-12" "dotnet-3.1-sdk-node-12"
 do
     echo "Building image ${IMAGE_NAME}"
     cd "${IMAGE_NAME}"
