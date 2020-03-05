@@ -14,10 +14,11 @@ RUN apt-get update && \
   libc6-dev \
   libgdiplus \
   libx11-dev \
-  unzip && \
+  unzip \
+  chromium && \
   wget https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/${CHROMIUM_REVISION}/chrome-linux.zip && \
   mkdir -p /app/.local-chromium/Linux-${CHROMIUM_REVISION} && \
   unzip chrome-linux.zip -d /app/.local-chromium/Linux-${CHROMIUM_REVISION} && \
   rm chrome-linux.zip && \
-  apt-get -yq remove --purge unzip && \
+  apt-get -yq remove --purge unzip chromium && \
   rm -rf /var/lib/apt/lists/*
