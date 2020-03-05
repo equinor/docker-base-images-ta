@@ -14,3 +14,10 @@ RUN apt-get update && \
    libx11-dev \
    unzip \
    && rm -rf /var/lib/apt/lists/*
+
+# Install Chromium so that it is available under /app/.local-chromium
+WORKDIR /app
+RUN wget https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/${CHROMIUM_REVISION}/chrome-linux.zip && \
+  mkdir -p .local-chromium/Linux-${CHROMIUM_REVISION} && \
+  unzip chrome-linux.zip -d .local-chromium/Linux-${CHROMIUM_REVISION} && \
+  rm chrome-linux.zip
